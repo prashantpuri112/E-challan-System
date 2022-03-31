@@ -6,7 +6,7 @@
     <title> Login Page</title>
     <link rel="stylesheet" href="LoginStyle.css">
 
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -22,34 +22,15 @@
                 <label>Username</label>
             </div>
             <div class="txt_field">
-                <input type="password" required>
+                <input type="password" id="password" required>
 
-                <!-- <span><i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toogle()"></i>
-                </span> -->
+                <span>
+                    <i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toogle()"></i>
 
-                <span></span>
+                </span>
+
 
                 <label>Password</label>
-
-
-                <!-- 
-                <script>
-                    var state = false;
-                    function toogle() {
-                        if (state) {
-                            document.getElementById("password").setAttribute("type", "password");
-                            document.getElementById("fa fa-eye").style.color = "7a797e";
-                            state = false;
-                        }
-
-                        else {
-                            document.getElementById("password").setAttribute("type", "text");
-                            document.getElementById("fa fa-seye").style.color = "5887ef";
-
-                            state = true;
-                        }
-                    }
-                </script> -->
 
 
             </div>
@@ -69,6 +50,30 @@
             </div>
         </form>
     </div>
+
+
+
+    <script>
+        var state = false;
+        function toogle() {
+            if (state) {
+                document.getElementById("password").setAttribute("type", "password");
+                document.getElementById("eye").style.color = "7a797e";
+                document.getElementById("eye").classList.remove("fa-eye-slash");
+                document.getElementById("eye").classList.add("fa-eye");
+                state = false;
+            }
+
+            else {
+                document.getElementById("password").setAttribute("type", "text");
+                document.getElementById("eye").classList.remove("fa-eye");
+                document.getElementById("eye").classList.add("fa-eye-slash");
+
+                state = true;
+            }
+        }
+    </script>
+
 
 </body>
 
