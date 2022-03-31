@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title> Login Page</title>
+    <link rel="stylesheet" href="LoginStyle.css">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+</head>
+
+<body>
+    <div class="center">
+        <h1>Login</h1>
+        <form method="post">
+            <div class="txt_field">
+                <input type="text" required>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" required>
+
+                <!-- <span><i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toogle()"></i>
+                </span> -->
+
+                <span></span>
+
+                <label>Password</label>
+
+
+                <!-- 
+                <script>
+                    var state = false;
+                    function toogle() {
+                        if (state) {
+                            document.getElementById("password").setAttribute("type", "password");
+                            document.getElementById("fa fa-eye").style.color = "7a797e";
+                            state = false;
+                        }
+
+                        else {
+                            document.getElementById("password").setAttribute("type", "text");
+                            document.getElementById("fa fa-seye").style.color = "5887ef";
+
+                            state = true;
+                        }
+                    }
+                </script> -->
+
+
+            </div>
+            <div class="actor">
+                <!-- Giving the opions for login's -->
+                <select>
+                    <option>Admin</option>
+                    <option>Traffic</option>
+                    <option>User</option>
+
+                </select>
+            </div>
+            <div class="pass">Forgot Password?</div>
+            <input type="submit" value="Login">
+            <div class="signup_link">
+                Not a member? <a href="Signup.html">Signup</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
