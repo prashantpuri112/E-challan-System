@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 body {
   background-color: #171c24;
 }
+
 .form_container {
   min-height: 80vh;
   display: flex;
@@ -14,7 +16,7 @@ body {
 .container {
   max-width: 700px;
   width: 100%;
-  background-color: #fff;
+  background-color: #333d52;
   padding: 25px 30px;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
@@ -100,9 +102,9 @@ form .category label .dot {
   transition: all 0.3s ease;
 }
 
-#dot-1:checked ~ .category label .one,
-#dot-2:checked ~ .category label .two,
-#dot-3:checked ~ .category label .three {
+#dot-1:checked~.category label .one,
+#dot-2:checked~.category label .two,
+#dot-3:checked~.category label .three {
   background: #171c24;
   border-color: #d9d9d9;
 }
