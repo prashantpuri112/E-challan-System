@@ -1,13 +1,12 @@
 const validateTraffic = (username, password) => {
   axios
     .get(
-      `http://localhost:1337/api/traffic-signups?filters[username][$eq]=${username}&filters[password][$eq]=${password}`
+      `http://localhost:1337/api/traffics?filters[username][$eq]=${username}&filters[password][$eq]=${password}&populate=*`
     )
     .then((res) => {
-      console.log(res.data)
-      localStorage.setItem('username', res.data.username)
-      localStorage.setItem('password', res.data.password)
-      window.location.href = '../html/traffic_dashboard.html'
+      console.log(res.data.data[0].id)
+      localStorage.setItem('traffic_id', res.data.data[0].id)
+      window.location.href = '../html/traffic/traffic_dashboard.html'
     })
     .catch((err) => console.log(err))
 }
