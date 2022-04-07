@@ -1,0 +1,17 @@
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.admin_layout {
+  position: relative;
+  height: 100vh;
+}
+.admin_layout .sidebar_container {
+  position: relative;
+  height: 100%;
+}
+.admin_layout .sidebar_container div {
+  height: 100%;
+}
