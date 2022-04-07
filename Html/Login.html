@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title> Login Page</title>
+    <link rel="stylesheet" href="../Css/LoginStyle.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="hello">
+
+    </div>
+    <div class="center">
+        <h1>Login</h1>
+        <form method="post">
+            <div class="txt_field">
+                <input type="text" required>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" id="password" required>
+
+                <span>
+                    <i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toogle()"></i>
+
+                </span>
+
+
+                <label>Password</label>
+
+
+            </div>
+            <div class="actor">
+                <!-- Giving the opions for login's -->
+                <select>
+                    <option>Admin</option>
+                    <option>Traffic</option>
+                    <option>User</option>
+
+                </select>
+            </div>
+            <div class="pass">Forgot Password?</div>
+            <input type="submit" value="Login">
+            <div class="signup_link">
+                Not a member? <a href="Signup.html">Signup</a>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script>
+        var state = false;
+        function toogle() {
+            if (state) {
+                document.getElementById("password").setAttribute("type", "password");
+                document.getElementById("eye").style.color = "7a797e";
+                document.getElementById("eye").classList.remove("fa-eye-slash");
+                document.getElementById("eye").classList.add("fa-eye");
+                state = false;
+            }
+
+            else {
+                document.getElementById("password").setAttribute("type", "text");
+                document.getElementById("eye").classList.remove("fa-eye");
+                document.getElementById("eye").classList.add("fa-eye-slash");
+
+                state = true;
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
