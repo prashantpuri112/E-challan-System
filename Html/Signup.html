@@ -1,158 +1,112 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <!---<title> Registration Form </title>--->
-    <link rel="stylesheet" href="../Css/SignupStyle.css" />
-    <link rel="stylesheet" href="../Css/NavbarStyle.css " />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <nav>
-        <input type="checkbox" id="show-menu" />
-        <!-- Mobile view three dot menu show -->
+<head>
+  <meta charset="UTF-8" />
+  <!---<title> Registration Form </title>--->
+  <link rel="stylesheet" href="../Css/SignupStyle.css" />
+  <link rel="stylesheet" href="../Css/NavbarStyle.css " />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
 
-        <label for="show-menu" class="menu-icon"
-          ><i class="fas fa-bars"></i
-        ></label>
+<body>
+  <div class="wrapper">
+    <nav>
+      <input type="checkbox" id="show-menu" />
+      <!-- Mobile view three dot menu show -->
 
-        <!-- Content inside menu -->
-        <div class="content">
-          <div class="logo"><a href="index.html">E-challan</a></div>
-          <ul class="links">
-            <li><a href="index.html">Home</a></li>
+      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
 
-            <li>
-              <a href="history_nepal_traffic.html" class="desktop-link"
-                >History of Traffic Police</a
-              >
-            </li>
+      <!-- Content inside menu -->
+      <div class="content">
+        <div class="logo"><a href="index.html">E-challan</a></div>
+        <ul class="links">
+          <li><a href="index.html">Home</a></li>
 
-            <li><a href="index.html#about_us">About Us</a></li>
-            <li><a href="about_team.html">About Team</a></li>
+          <li>
+            <a href="history_nepal_traffic.html" class="desktop-link">History of Traffic Police</a>
+          </li>
 
-            <li class="login">
-              <a href="login.html">Sign In</a>
-            </li>
+          <li><a href="index.html#about_us">About Us</a></li>
+          <li><a href="about_team.html">About Team</a></li>
 
-            <li class="signup"><a href="signup.html">Sign Up</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+          <li class="login">
+            <a href="login.html">Sign In</a>
+          </li>
 
-    <div class="form_container">
-      <div class="container">
-        <div class="title">Registration</div>
-        <div class="content">
-          <form id="register_form">
-            <div class="user-details">
-              <div class="input-box">
-                <span class="details">Full Name</span>
-                <input
-                  type="text"
-                  id="full_name"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-              <div class="input-box">
-                <span class="details">Username</span>
-                <input
-                  type="text"
-                  id="username"
-                  placeholder="Enter your username"
-                  required
-                />
-              </div>
-              <div class="input-box">
-                <span class="details">Email</span>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
-              <div class="input-box">
-                <span class="details">Phone Number</span>
-                <input
-                  type="tel"
-                  id="phone_number"
-                  placeholder="Enter your number"
-                  required
-                />
-              </div>
-              <div class="input-box">
-                <span class="details">Password</span>
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="Enter your password"
-                  required
-                />
-              </div>
-              <div class="input-box">
-                <span class="details">Confirm Password</span>
-                <input
-                  type="password"
-                  id="confirm_password"
-                  placeholder="Confirm your password"
-                  required
-                />
-              </div>
+          <li class="signup"><a href="signup.html">Sign Up</a></li>
+        </ul>
+        <form id="search_chalan_form">
+          <input type="search" name="search" placeholder="Search by license" id="search" required />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </div>
+
+  <div class="form_container">
+    <div class="container">
+      <div class="title">Registration</div>
+      <div class="content">
+        <form id="register_form">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Full Name</span>
+              <input type="text" id="full_name" placeholder="Enter your name" required />
             </div>
-            <div class="gender-details">
-              <input
-                type="radio"
-                class="gender_radio"
-                value="Male"
-                name="gender"
-                id="dot-1"
-              />
-              <input
-                type="radio"
-                class="gender_radio"
-                value="Female"
-                name="gender"
-                id="dot-2"
-              />
-              <input
-                type="radio"
-                class="gender_radio"
-                value="Prefer Not To Say"
-                name="gender"
-                id="dot-3"
-              />
-              <span class="gender-title">Gender</span>
-              <div class="category">
-                <label for="dot-1">
-                  <span class="dot one"></span>
-                  <span class="gender">Male</span>
-                </label>
-                <label for="dot-2">
-                  <span class="dot two"></span>
-                  <span class="gender">Female</span>
-                </label>
-                <label for="dot-3">
-                  <span class="dot three"></span>
-                  <span class="gender">Prefer not to say</span>
-                </label>
-              </div>
+            <div class="input-box">
+              <span class="details">Username</span>
+              <input type="text" id="username" placeholder="Enter your username" required />
             </div>
-            <div class="button">
-              <input type="submit" class="submit-btn" />
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input type="email" id="email" placeholder="Enter your email" required />
             </div>
-          </form>
-        </div>
+            <div class="input-box">
+              <span class="details">Phone Number</span>
+              <input type="tel" id="phone_number" placeholder="Enter your number" required />
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input type="password" id="password" placeholder="Enter your password" required />
+            </div>
+            <div class="input-box">
+              <span class="details">Confirm Password</span>
+              <input type="password" id="confirm_password" placeholder="Confirm your password" required />
+            </div>
+          </div>
+          <div class="gender-details">
+            <input type="radio" class="gender_radio" value="Male" name="gender" id="dot-1" />
+            <input type="radio" class="gender_radio" value="Female" name="gender" id="dot-2" />
+            <input type="radio" class="gender_radio" value="Prefer Not To Say" name="gender" id="dot-3" />
+            <span class="gender-title">Gender</span>
+            <div class="category">
+              <label for="dot-1">
+                <span class="dot one"></span>
+                <span class="gender">Male</span>
+              </label>
+              <label for="dot-2">
+                <span class="dot two"></span>
+                <span class="gender">Female</span>
+              </label>
+              <label for="dot-3">
+                <span class="dot three"></span>
+                <span class="gender">Prefer not to say</span>
+              </label>
+            </div>
+          </div>
+          <div class="button">
+            <input type="submit" class="submit-btn" />
+          </div>
+        </form>
       </div>
     </div>
+  </div>
 
-    <!-- axios cdn -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- axios cdn -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <script src="../js/traffic_register.js"></script>
-  </body>
+  <script src="../js/traffic_register.js"></script>
+</body>
+
 </html>

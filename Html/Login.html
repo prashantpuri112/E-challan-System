@@ -1,116 +1,104 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <title>Login Page</title>
-    <link rel="stylesheet" href="../css/LoginStyle.css" />
-    <link rel="stylesheet" href="../css/NavbarStyle.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Login Page</title>
+  <link rel="stylesheet" href="../css/LoginStyle.css" />
+  <link rel="stylesheet" href="../css/NavbarStyle.css" />
 
-  <body>
-    <div class="wrapper">
-      <nav>
-        <input type="checkbox" id="show-menu" />
-        <!-- Mobile view three dot menu show -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
 
-        <label for="show-menu" class="menu-icon"
-          ><i class="fas fa-bars"></i
-        ></label>
+<body>
+  <div class="wrapper">
+    <nav>
+      <input type="checkbox" id="show-menu" />
+      <!-- Mobile view three dot menu show -->
 
-        <!-- Content inside menu -->
-        <div class="content">
-          <div class="logo"><a href="index.html">E-challan</a></div>
-          <ul class="links">
-            <li><a href="index.html">Home</a></li>
+      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
 
-            <li>
-              <a href="history_nepal_traffic.html" class="desktop-link"
-                >History of Traffic Police</a
-              >
-            </li>
+      <!-- Content inside menu -->
+      <div class="content">
+        <div class="logo"><a href="index.html">E-challan</a></div>
+        <ul class="links">
+          <li><a href="index.html">Home</a></li>
 
-            <li><a href="index.html#about_us">About Us</a></li>
-            <li><a href="about_team.html">About Team</a></li>
+          <li>
+            <a href="history_nepal_traffic.html" class="desktop-link">History of Traffic Police</a>
+          </li>
 
-            <li class="login">
-              <a href="login.html">Sign In</a>
-            </li>
+          <li><a href="index.html#about_us">About Us</a></li>
+          <li><a href="about_team.html">About Team</a></li>
 
-            <li class="signup"><a href="signup.html">Sign Up</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+          <li class="login">
+            <a href="login.html">Sign In</a>
+          </li>
 
-    <div class="hello"></div>
-    <div class="center">
-      <h1>Login</h1>
-      <form id="login_form">
-        <div class="txt_field">
-          <input id="username" type="text" required />
-          <span>
-            <i
-              style="font-size: 24px"
-              class="fa fa-user"
-              aria-hidden="true"
-            ></i>
-          </span>
-          <label>Username</label>
-        </div>
-        <div class="txt_field">
-          <input type="password" id="password" required />
-          <span>
-            <i
-              style="font-size: 24px"
-              class="fa fa-eye"
-              aria-hidden="true"
-              id="eye"
-              onclick="toogle()"
-            ></i>
-          </span>
-          <label>Password</label>
-        </div>
-        <div class="actor">
-          <!-- Giving the opions for login's -->
-          <select id="user_type">
-            <option value="admin">Admin</option>
-            <option value="traffic">Traffic</option>
-            <option value="user">User</option>
-          </select>
-        </div>
-        <!-- <div class="pass">Forgot Password?</div> -->
-        <input type="submit" style="margin-top: 10px" value="Login" />
-        <div class="signup_link">
-          Not a member? <a href="Signup.html">Signup</a>
-        </div>
-      </form>
-    </div>
+          <!-- <li class="signup"><a href="signup.html">Sign Up</a></li> -->
+        </ul>
+        <form id="search_chalan_form">
+          <input type="search" name="search" placeholder="Search by license" id="search" required />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </div>
 
-    <script>
-      var state = false
-      function toogle() {
-        if (state) {
-          document.getElementById('password').setAttribute('type', 'password')
-          document.getElementById('eye').style.color = '7a797e'
-          document.getElementById('eye').classList.remove('fa-eye-slash')
-          document.getElementById('eye').classList.add('fa-eye')
-          state = false
-        } else {
-          document.getElementById('password').setAttribute('type', 'text')
-          document.getElementById('eye').classList.remove('fa-eye')
-          document.getElementById('eye').classList.add('fa-eye-slash')
+  <div class="hello"></div>
+  <div class="center">
+    <h1>Login</h1>
+    <form id="login_form">
+      <div class="txt_field">
+        <input id="username" type="text" required />
+        <span>
+          <i style="font-size: 24px" class="fa fa-user" aria-hidden="true"></i>
+        </span>
+        <label>Username</label>
+      </div>
+      <div class="txt_field">
+        <input type="password" id="password" required />
+        <span>
+          <i style="font-size: 24px" class="fa fa-eye" aria-hidden="true" id="eye" onclick="toogle()"></i>
+        </span>
+        <label>Password</label>
+      </div>
+      <div class="actor">
+        <!-- Giving the opions for login's -->
+        <select id="user_type">
+          <option value="admin">Admin</option>
+          <option value="traffic">Traffic</option>
+          <!-- <option value="user">User</option> -->
+        </select>
+      </div>
+      <!-- <div class="pass">Forgot Password?</div> -->
+      <input type="submit" style="margin-top: 10px" value="Login" />
+      <div class="signup_link">
+      </div>
+    </form>
+  </div>
 
-          state = true
-        }
+  <script>
+    var state = false
+    function toogle() {
+      if (state) {
+        document.getElementById('password').setAttribute('type', 'password')
+        document.getElementById('eye').style.color = '7a797e'
+        document.getElementById('eye').classList.remove('fa-eye-slash')
+        document.getElementById('eye').classList.add('fa-eye')
+        state = false
+      } else {
+        document.getElementById('password').setAttribute('type', 'text')
+        document.getElementById('eye').classList.remove('fa-eye')
+        document.getElementById('eye').classList.add('fa-eye-slash')
+
+        state = true
       }
-    </script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    }
+  </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <script src="../js/login.js"></script>
-  </body>
+  <script src="../js/login.js"></script>
+</body>
+
 </html>
