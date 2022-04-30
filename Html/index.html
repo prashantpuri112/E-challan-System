@@ -1,143 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Navbar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Navbar</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../Css/NavbarStyle.css" />
+    <link rel="stylesheet" href="../Css/Slider.css" />
+    <link rel="stylesheet" href="../Css/about_us.css" />
+    <script
+      src="https://kit.fontawesome.com/90c109dde5.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
 
-  <link rel="stylesheet" href="../Css/NavbarStyle.css" />
-  <link rel="stylesheet" href="../Css/Slider.css" />
-  <link rel="stylesheet" href="../Css/about_us.css" />
-  <script src="https://kit.fontawesome.com/90c109dde5.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-</head>
+  </head>
 
-<body>
-  <div class="wrapper">
-    <nav>
-      <input type="checkbox" id="show-menu" />
-      <!-- Mobile view three dot menu show -->
+  <body>
+    <div class="wrapper">
+      <nav>
+        <input type="checkbox" id="show-menu" />
+        <!-- Mobile view three dot menu show -->
 
-      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+        <label for="show-menu" class="menu-icon"
+          ><i class="fas fa-bars"></i
+        ></label>
 
-      <!-- Content inside menu -->
-      <div class="content">
-        <div class="logo"><a href="index.html">E-challan</a></div>
-        <ul class="links">
-          <li><a href="index.html">Home</a></li>
+        <!-- Content inside menu -->
+        <div class="content">
+          <div class="logo"><a href="index.html">E-challan</a></div>
+          <ul class="links">
+            <li><a href="index.html">Home</a></li>
 
-          <li>
-            <a href="history_nepal_traffic.html" class="desktop-link">History of Traffic Police</a>
-          </li>
+            <li>
+              <a href="history_nepal_traffic.html" class="desktop-link"
+                >History of Traffic Police</a
+              >
+            </li>
 
-          <li><a href="index.html#about_us">About Us</a></li>
-          <li><a href="about_team.html">About Team</a></li>
+            <li><a href="index.html#about_us">About Us</a></li>
+            <li><a href="about_team.html">About Team</a></li>
 
-          <li class="login">
-            <a href="login.html">Sign In</a>
-          </li>
-
-          <li class="signup"><a href="signup.html">Sign Up</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="../Images/1.jpg" alt="demo-image" />
-      </div>
-      <div class="swiper-slide">
-        <img src="../Images/2.jpg" alt="demo-image" />
-      </div>
-      <div class="swiper-slide">
-        <img src="../Images/3.jpg" alt="demo-image" />
-      </div>
+            <li class="login">
+              <a href="login.html">Sign In</a>
+            </li>
+          </ul>
+          <form id="search_chalan_form">
+            <input type="search" name="search" id="search" required />
+            <button type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
     </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
-  </div>
-  <!-- about us -->
-  <div class="about_us_container">
-    <img src="../Images/Traffic Logo.png" />
-    <h1 id="about_us">Collaborative E-challan</h1>
-    <p>
-      Since everything is on an electronic platform, the concept of e- challan system has been introduced.<br> A vehicle
-      e-challan is a computer-generated challan used by the Traffic Police and is being issued to all the traffic<br>
-      defaulters in Nepal. The Government of Nepal has initiated this process to make the traffic services
-      convenient,<br>easy as well as transparent to the general public
-    </p>
-    <div class="icon">
-      <a href="https://www.facebook.com/NepalPolicePHQ" target="_blank" style="text-decoration: none">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </a>
-      <a href="https://www.instagram.com/nepalpolice" target="_blank" style="text-decoration: none">
-        <ion-icon name="logo-instagram"></ion-icon>
-      </a>
-      <a href="https://twitter.com/NepalPoliceHQ" target="_blank" style="text-decoration: none">
-        <ion-icon name="logo-twitter"></ion-icon>
-      </a>
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="../Images/1.jpg" alt="demo-image" />
+        </div>
+        <div class="swiper-slide">
+          <img src="../Images/2.jpg" alt="demo-image" />
+        </div>
+        <div class="swiper-slide">
+          <img src="../Images/3.jpg" alt="demo-image" />
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
-    <div class="btn_container">
-      <button class="btn active">
-        <a href="mailto:vtpo@nepalpolice.gov.np" style="text-decoration: none">Mail Us
+    <!-- about us -->
+    <div class="about_us_container">
+      <img src="../Images/Traffic Logo.png" />
+      <h1 id="about_us">Collaborative E-challan</h1>
+      <p>
+        Since everything is on an electronic platform, the concept of e- challan
+        system has been introduced.<br />
+        A vehicle e-challan is a computer-generated challan used by the Traffic
+        Police and is being issued to all the traffic<br />
+        defaulters in Nepal. The Government of Nepal has initiated this process
+        to make the traffic services convenient,<br />easy as well as
+        transparent to the general public
+      </p>
+      <div class="icon">
+        <a
+          href="https://www.facebook.com/NepalPolicePHQ"
+          target="_blank"
+          style="text-decoration: none"
+        >
+          <ion-icon name="logo-facebook"></ion-icon>
         </a>
-      </button>
-      <button class="btn">
-        <a href="tel:103" style="text-decoration: none">Call Us</a>
-      </button>
+        <a
+          href="https://www.instagram.com/nepalpolice"
+          target="_blank"
+          style="text-decoration: none"
+        >
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a
+          href="https://twitter.com/NepalPoliceHQ"
+          target="_blank"
+          style="text-decoration: none"
+        >
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </div>
+      <div class="btn_container">
+        <button class="btn active">
+          <a href="mailto:vtpo@nepalpolice.gov.np" style="text-decoration: none"
+            >Mail Us
+          </a>
+        </button>
+        <button class="btn">
+          <a href="tel:103" style="text-decoration: none">Call Us</a>
+        </button>
+      </div>
     </div>
-  </div>
 
-  <footer>
-    <h1>E Challan</h1>
-    <p>
-      It is a coursework of our module Collaborative Development where we will be working as a team of four to complete
-      the project on the topic E-Challan. E-Challan is a system that allows traffic to create and print challan in both
-      pdf and excel. The functionality of the project is CRUD.
-    </p>
-    <div class="icon">
-      <a href="https://www.facebook.com/NepalPolicePHQ" target="_blank" style="text-decoration: none">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </a>
-      <a href="https://www.instagram.com/nepalpolice" target="_blank" style="text-decoration: none">
-        <ion-icon name="logo-instagram"></ion-icon>
-      </a>
-      <a href="https://twitter.com/NepalPoliceHQ" target="_blank" style="text-decoration: none">
-        <ion-icon name="logo-twitter"></ion-icon>
-      </a>
-    </div>
-    <div class="copyright">
-      <span>&copy; 2022 CopyRight Reserved. E-Challan System</span>
-    </div>
-  </footer>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script>
-    var swiper = new Swiper('.mySwiper', {
-      pagination: {
-        el: '.swiper-pagination',
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    })
-  </script>
-</body>
+    <footer>
+      <h1>E Challan</h1>
+      <p>
+        It is a coursework of our module Collaborative Development where we will
+        be working as a team of four to complete the project on the topic
+        E-Challan. E-Challan is a system that allows traffic to create and print
+        challan in both pdf and excel. The functionality of the project is CRUD.
+      </p>
+      <div class="icon">
+        <a
+          href="https://www.facebook.com/NepalPolicePHQ"
+          target="_blank"
+          style="text-decoration: none"
+        >
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a
+          href="https://www.instagram.com/nepalpolice"
+          target="_blank"
+          style="text-decoration: none"
+        >
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a
+          href="https://twitter.com/NepalPoliceHQ"
+          target="_blank"
+          style="text-decoration: none"
+        >
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </div>
+      <div class="copyright">
+        <span>&copy; 2022 CopyRight Reserved. E-Challan System</span>
+      </div>
+    </footer>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper('.mySwiper', {
+        pagination: {
+          el: '.swiper-pagination',
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      })
+    </script>
+    <script>
+      document
+        .getElementById('search_chalan_form')
+        .addEventListener('submit', (e) => {
+          e.preventDefault()
+          const license_number =
+            document.getElementById('search_chalan_form').elements.search.value
+          window.location.href =
+            'searchChalan.html?license_number=' + license_number
+        })
+    </script>
+  </body>
 
-<!-- <div id="footer">
+  <!-- <div id="footer">
     <footer>
         <p>&copy; 2022 CopyRight Reserved.<br>Naxal, Kathmandu <br> Contact Number: 9800XXXXXX</p>
     </footer>
 </div> -->
-
 </html>

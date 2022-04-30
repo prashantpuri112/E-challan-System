@@ -90,6 +90,7 @@
             </li>
           </ul>
           <hr />
+
           <button class="btn btn-danger" onclick="logout()">Logout</button>
         </div>
       </div>
@@ -202,7 +203,7 @@
                 onclick="togglePassword()"
               />
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
           </form>
         </div>
       </main>
@@ -212,15 +213,118 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/select_loader.js"></script>
+
+    <!-- editing trafic -->
+
+    <!-- filling traffic existing fields -->
+    <script>
+      const trafficDetailsFiller = (traffic) => {
+        document.getElementById('fullname').value = traffic.fullname
+        document.getElementById('username').value = traffic.username
+        document.getElementById('phone_number').value = traffic.phone_number
+        document.getElementById('post').value = traffic.post
+        document.getElementById('address').value = traffic.current_address
+        document.getElementById('email').value = traffic.email
+        document.getElementById('password').value = traffic.password
+        document.getElementById('province_select').value = traffic.province
+        districtSelectRenderer(traffic.province)
+        document.getElementById('district_select').value = traffic.district
+        municipalitySelectRenderer(traffic.district)
+        document.getElementById('municipality_select').value =
+          traffic.local_body
+        document.getElementById('ward_no').value = traffic.ward_no
+      }
+    </script>
+
+    <script>
+      // getting query parameters
+      const urlParams = new URLSearchParams(window.location.search)
+      const id = urlParams.get('id')
+      let trafficDetail = {}
+      axios
+        .get(`http://localhost:1337/api/traffics?filters[id][$eq]=${id}`)
+        .then((res) => {
+          const currentTraffic = res.data.data[0].attributes
+          trafficDetailsFiller(currentTraffic)
+          trafficDetail = currentTraffic
+        })
+        .catch((err) => console.log(err))
+    </script>
+
+    <!-- editing traffic -->
+    <script>
+      const editTraffic = (
+        fullname,
+        username,
+        phone_number,
+        post,
+        current_address,
+        email,
+        password,
+        province,
+        district,
+        local_body,
+        ward_no
+      ) => {
+        const data = {
+          fullname: fullname,
+          username: username,
+          phone_number: phone_number,
+          post: post,
+          current_address: current_address,
+          email: email,
+          password: password,
+          province: province,
+          district: district,
+          local_body: local_body,
+          ward_no: ward_no,
+        }
+        console.log(data)
+        axios
+          .put(`http://localhost:1337/api/traffics/${id}`, { data: data })
+          .then((res) => alert('Traffic Edited Successfully!'))
+          .catch('Error! editing traffic')
+      }
+      document
+        .getElementById('add_traffic_form')
+        .addEventListener('submit', (e) => {
+          e.preventDefault()
+          const fullname = document.getElementById('fullname').value
+          const username = document.getElementById('username').value
+          const phone_number = document.getElementById('phone_number').value
+          const post = document.getElementById('post').value
+          const current_address = document.getElementById('address').value
+          const email = document.getElementById('email').value
+          const password = document.getElementById('password').value
+          const province = document.getElementById('province_select').value
+          const district = document.getElementById('district_select').value
+          const local_body = document.getElementById(
+            'municipality_select'
+          ).value
+          const ward_no = document.getElementById('ward_no').value
+          editTraffic(
+            fullname,
+            username,
+            phone_number,
+            post,
+            current_address,
+            email,
+            password,
+            province,
+            district,
+            local_body,
+            ward_no
+          )
+        })
+    </script>
     <script>
       const logout = () => {
         window.location.href = '/Html'
       }
     </script>
-    <!-- axios cdn -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./js/admin_activities.js"></script>
-    <script src="./js/data.js"></script>
-    <script src="./js/select_loader.js"></script>
   </body>
 </html>

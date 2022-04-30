@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challan Search</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1>Your challans</h1>
+    <table class="table">
+      <thead>
+        <th class="col">Driver Name</th>
+        <th class="col">Location</th>
+        <th class="col">License Number</th>
+        <th class="col">Vehicle Number</th>
+        <th class="col">Vehicle Type</th>
+        <th class="col">Issued By</th>
+        <th class="col">Case</th>
+        <th class="col">Fine</th>
+        <th class="col">Status</th>
+        <th class="col">Action</th>
+      </thead>
+      <tbody id="table_body"></tbody>
+    </table>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      const handlePay = (id) => {
+        axios
+          .put(`http://localhost:1337/api/challans/${id}`, {
+            data: {
+              is_paid: true,
+            },
+          })
+          .then((res) => {
+            console.log(res)
+            alert('Paid Successfully')
+            window.location.reload()
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
+      // getting license number from url search parameter
+      var license_number = new URLSearchParams(window.location.search).get(
+        'license_number'
+      )
+      console.log(license_number)
+
+      const table_body = document.getElementById('table_body')
+      // getting available challans of given license number
+
+      axios
+        .get(
+          `http://localhost:1337/api/challans?filters[license_number][$eq]=${license_number}&populate=*`
+        )
+        .then((res) => {
+          const allChallans = res.data.data
+          if (allChallans.length === 0) {
+            table_body.innerHTML = `<tr><td colspan="9">No challans found</td></tr>`
+          } else {
+            console.log(allChallans)
+            table_body.innerHTML = ''
+            for (let challan of allChallans) {
+              const tr = document.createElement('tr')
+              tr.innerHTML = `
+          <td>${challan.attributes.drivers_name}</td>
+          <td>${challan.attributes.location}</td>
+          <td>${challan.attributes.license_number}</td>
+          <td>${challan.attributes.vehicle_number}</td>
+          <td>${challan.attributes.vehicle_type}</td>
+          <td>${challan.attributes.traffic.data.attributes.fullname}</td>
+          <td>${challan.attributes.case}</td>
+          <td>${challan.attributes.fine}</td>
+          <td>${challan.attributes.is_paid ? 'Paid' : 'Unpaid'}</td>
+          <td><button class="btn btn-primary" onclick="handlePay(${
+            challan.id
+          })">Pay</button></td>`
+              table_body.appendChild(tr)
+            }
+          }
+        })
+        .catch((err) => console.log(err))
+    </script>
+  </body>
+</html>

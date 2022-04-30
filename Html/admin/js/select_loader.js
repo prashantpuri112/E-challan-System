@@ -69,7 +69,6 @@ const districtSelectRenderer = (province_name) => {
     option.value = districts
     option.text = districts
     district_field.appendChild(option)
-    district_field.appendChild(option)
   }
 }
 
