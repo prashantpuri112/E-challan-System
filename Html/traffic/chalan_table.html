@@ -80,6 +80,7 @@
             <th scope="col">Fine</th>
             <th scope="col">Created By</th>
             <th scope="col">Created At</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody id="traffic_body"></tbody>
@@ -155,7 +156,122 @@
           .value.toLowerCase()
         filterTraffic(traffic_name)
       })
+
   </script>
+
+
+
+
+
+
+
+  <!-- axios cdn -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const allTraffics = []
+    var traffictoBeDeleted = null
+
+    // method to redirect to edit page
+    const handleTrafficEdit = (traffic_id) => {
+      window.location.href =
+        'http://127.0.0.1:5500/Html/admin/traffic_edit.html?id=' + traffic_id
+    }
+    // method to delete Traffic
+    const handleTrafficDelete = (traffic_id) => {
+      console.log(traffic_id)
+      const confirmation = confirm(
+        'Are you sure you want to delete this Traffic?'
+      )
+      if (confirmation) {
+        axios
+          .delete(`http://localhost:1337/api/traffics/${traffic_id}`)
+          .then((res) => {
+            console.log(res)
+            alert('Traffic deleted successfully')
+            window.location.reload()
+          })
+          .catch((err) => {
+            console.log(err)
+            alert('Error deleting Traffic')
+          })
+      }
+    }
+    const traffic_body = document.getElementById('traffic_body')
+    traffic_body.innerHTML = ''
+    axios
+      .get(`http://localhost:1337/api/traffics`)
+      .then((res) => {
+        console.log(res.data.data)
+        res.data.data.forEach((traffic, index) => {
+          allTraffics.push(traffic.attributes)
+          traffic_body.innerHTML += `<tr>
+                   <th scope="row">${index + 1}</th>
+                   <td>${traffic.attributes.fullname}</td>
+                   <td>${traffic.attributes.username}</td>
+                   <td>${traffic.attributes.email}</td>
+                   <td>${traffic.attributes.phone_number}</td>
+                   <td>${traffic.attributes.current_address}</td>
+                   <td>${traffic.attributes.province}</td>
+                   <td>${traffic.attributes.district}</td>
+                   <td>${traffic.attributes.local_body}</td>
+                   <td>${traffic.attributes.ward_no}</td>
+                   <td>
+                     <button class="btn btn-primary" onclick="handleTrafficEdit(${traffic.id
+            })">Edit</button>
+                     <button class="btn btn-danger" onclick="handleTrafficDelete(${traffic.id
+            })">Delete</button>
+                     </td>
+                 </tr>`
+        })
+      })
+      .catch((err) => {
+        traffic_table.innerHTML = '<small>Error</small>'
+      })
+
+    const filterTraffic = (traffic_name) => {
+      const filteredTraffics = allTraffics.filter((traffic) =>
+        traffic.fullname.toLowerCase().includes(traffic_name)
+      )
+      const traffic_body = document.getElementById('traffic_body')
+      traffic_body.innerHTML = ''
+      if (filteredTraffics.length > 0) {
+        filteredTraffics.forEach((traffic, index) => {
+          traffic_body.innerHTML += `<tr>
+                   <th scope="row">${index + 1}</th>
+                   <td>${traffic.fullname}</td>
+                   <td>${traffic.username}</td>
+                   <td>${traffic.email}</td>
+                   <td>${traffic.phone_number}</td>
+                   <td>${traffic.current_address}</td>
+                   <td>${traffic.province}</td>
+                   <td>${traffic.district}</td>
+                   <td>${traffic.local_body}</td>
+                   <td>${traffic.ward_no}</td>
+
+                   <td>
+                     <button class="btn btn-primary">Edit</button>
+                     <button class="btn btn-danger" onclick="handleTrafficDelete(${traffic.id
+            })">Delete</button>
+                     </td>
+                 </tr>`
+        })
+      } else {
+        traffic_body.innerHTML = '<small>No such traffics.</small>'
+      }
+    }
+    document
+      .getElementById('search_traffic_form')
+      .addEventListener('submit', (e) => {
+        e.preventDefault()
+        var x = 'dfads'
+
+        const traffic_name = document
+          .getElementById('search_input')
+          .value.toLowerCase()
+        filterTraffic(traffic_name)
+      })
+  </script>
+
   <script>
     const logout = () => {
       window.location.href = '/Html'
