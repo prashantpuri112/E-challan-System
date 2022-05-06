@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>A simple, clean, and responsive HTML invoice template</title>
+
+    <style>
+      #company {
+        font-size: 25px;
+        font-weight: bold;
+        padding-top: 15px;
+        line-height: 56px;
+        height: 56px;
+        width: 420px !important;
+      }
+
+      .invoice-box {
+        max-width: 800px;
+        margin: auto;
+        padding: 30px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        font-size: 16px;
+        line-height: 24px;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
+      }
+
+      .invoice-box table {
+        width: 100%;
+        line-height: inherit;
+        text-align: left;
+      }
+
+      .invoice-box table td {
+        padding: 5px;
+        vertical-align: top;
+      }
+
+      .invoice-box table tr td:nth-child(2) {
+        text-align: right;
+      }
+
+      .invoice-box table tr.top table td {
+        padding-bottom: 20px;
+      }
+
+      .invoice-box table tr.top table td.title {
+        font-size: 45px;
+        line-height: 45px;
+        color: #333;
+      }
+
+      .invoice-box table tr.information table td {
+        padding-bottom: 40px;
+      }
+
+      .invoice-box table tr.heading td {
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        font-weight: bold;
+      }
+
+      .invoice-box table tr.details td {
+        padding-bottom: 20px;
+      }
+
+      .invoice-box table tr.item td {
+        border-bottom: 1px solid #eee;
+      }
+
+      .invoice-box table tr.item.last td {
+        border-bottom: none;
+      }
+
+      .invoice-box table tr.total td:nth-child(2) {
+        border-top: 2px solid #eee;
+        font-weight: bold;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .invoice-box table tr.top table td {
+          width: 100%;
+          display: block;
+          text-align: center;
+        }
+
+        .invoice-box table tr.information table td {
+          width: 100%;
+          display: block;
+          text-align: center;
+        }
+      }
+
+      /** RTL **/
+      .rtl {
+        direction: rtl;
+        font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial,
+          sans-serif;
+      }
+
+      .rtl table {
+        text-align: right;
+      }
+
+      .rtl table tr td:nth-child(2) {
+        text-align: left;
+      }
+
+      input {
+        border-left-width: 1px;
+        border-right-width: 1px;
+        overflow: hidden;
+      }
+
+      .span-12 {
+        border-left-width: 1px;
+        border-right-width: 1px;
+      }
+
+      input {
+        border: 0;
+        border: 1px;
+        background: none;
+        padding: 0;
+        font-size: 15px;
+        color: #222;
+        font-family: 'Helvetica Neue', arial, sans;
+        line-height: 23px;
+      }
+
+      input,
+      textarea {
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+        background: transparent;
+        border: 1px;
+      }
+
+      input:focus {
+        background: rgba(255, 255, 100, 0.4) !important;
+        background: -webkit-gradient(
+          linear,
+          left top,
+          left bottom,
+          from(rgba(255, 255, 100, 0.5)),
+          to(rgba(255, 255, 100, 0.1))
+        ) !important;
+        color: #000;
+        text-shadow: #fff 1px 1px;
+        -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      textarea.notes {
+        padding: 20px 70px 0px 70px;
+        font-family: 'Helvetica Neue', arial, sans;
+        font-size: 14px;
+        background: none;
+        line-height: 21px;
+        border: 0;
+        resize: none;
+        font-size: 15px;
+        margin: 10px auto 0px auto;
+        width: 680px;
+        height: 10px;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js"></script>
+  </head>
+
+  <body style='display:flex;flex-direction:column;align-items:center;'>
+    <div class="invoice-box" id="invoice">
+      <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td class="title">
+                  <input id="company" class="span-12 ll" value="E-Challan" />
+                </td>
+
+                <td>
+                  <input id="challan_id" value="Invoice #: 123" /><br />
+                  <input
+                    id="created_at"
+                    value="Created: January 1, 2015"
+                  /><br />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr class="information">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td>
+                  <input value="E-Challan P.Ltd" /><br />
+                  <input id="traffic" value="12345 Sunny Road" /><br />
+                </td>
+
+                <td>
+                  <input id="drivers_name" value="Acme Corp." /><br />
+
+                  <input id="vehicle_type" value="john@example.com" />
+                  <input id="vehicle_number" value="john@example.com" />
+                  <input id="license_number" value="john@example.com" />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr class="heading">
+          <td>Cause</td>
+
+          <td>Fine</td>
+        </tr>
+
+        <tr class="total">
+          <td id="cause"></td>
+
+          <td id="fine">Total: $385.00</td>
+		  <tr>
+
+			  <td></td>
+			  <td id="status"></td>
+			</tr>
+        </tr>
+      </table>
+    </div>
+
+    <button style='margin-top:2rem; cursor:pointer;padding: 1rem 2rem; border: none; background-color: #005dff; color:#fff;font-size: 1.3rem;' onclick="generatePDF()">Download as PDF</button>
+    <!--axios cdn-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      const challan_id = localStorage.getItem('challan_id')
+      axios
+        .get(`http://localhost:1337/api/challans/${challan_id}?populate=*`)
+        .then((res) => {
+          console.log(res.data.data)
+          const challan = res.data.data.attributes
+          document.getElementById('challan_id').value =
+            'Invoice : #' + res.data.data.id
+          document.getElementById('created_at').value =
+            'Date: ' + challan.createdAt.split('T')[0]
+          document.getElementById('cause').innerText = challan.case
+          document.getElementById('fine').innerText = 'Rs. ' + challan.fine
+          document.getElementById('traffic').value =
+            challan.traffic.data.attributes.fullname
+          document.getElementById('drivers_name').value = challan.drivers_name
+          document.getElementById('vehicle_type').value =
+            'Vehicle Type: ' + challan.vehicle_type
+          document.getElementById('vehicle_number').value =
+            'Vehicle Number: ' + challan.vehicle_number
+          document.getElementById('license_number').value =
+            'License number: ' + challan.license_number
+          document.getElementById('status').innerText = challan.is_paid ? 'Paid' : 'Unpaid'
+        })
+        .catch((err) => console.log(err))
+    </script>
+    <script>
+      function generatePDF() {
+        // Choose the element that our invoice is rendered in.
+        const element = document.getElementById('invoice')
+        html2pdf(element).save()
+        alert('Pdf is downloaded')
+      }
+    </script>
+  </body>
+</html>

@@ -347,8 +347,7 @@ footer p {
 .icon a:hover {
   color: cyan;
 }
-#search_chalan_form {
+/* #search_chalan_form {
   display: flex;
-  margin-left: 100px;
   gap: 0.5rem;
-}
+} */

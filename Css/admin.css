@@ -6,12 +6,12 @@ body {
 }
 .admin_layout {
   position: relative;
-  height: 100vh;
+  height: auto;
   display: flex;
 }
 .admin_layout .sidebar_container {
   position: relative;
-  height: 100%;
+  height: 100vh;
 }
 .admin_layout .sidebar_container div {
   height: 100%;
@@ -30,7 +30,7 @@ body {
   /* max-width: 600px; */
   width: 100%;
   /* height: 88vh; */
-  padding:1rem;
+  padding: 1rem;
   overflow-y: scroll;
 }
 #passwordGroup {
