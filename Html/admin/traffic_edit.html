@@ -12,6 +12,38 @@
 </head>
 
 <body>
+  <style>
+    label::after {
+      content: " *";
+      color: red;
+    }
+    .password_label::after{
+content: "";
+    }
+    .form_container{
+      padding:1rem;
+    }
+    .traffic_add_form{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+    }
+    #passwordGroup{
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+    .password_toggle{
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .submit_btn{
+      width:300px;
+      grid-column: 1 / span 2;
+    }
+    
+  </style>
   <div class="admin_layout">
     <div class="sidebar_container">
       <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px">
@@ -61,64 +93,57 @@
       </div>
     </div>
     <main>
-      <h1>Add Traffic</h1>
+      <h1>Edit Traffic</h1>
       <div class="form_container" style="margin-top: 20px">
         <form class="traffic_add_form" id="add_traffic_form">
           <div class="form-group">
             <label for="fullname">Full Name</label>
-            <input type="name" class="form-control" id="fullname" placeholder="Enter Full Name" />
+            <input type="name" class="form-control" id="fullname" placeholder="Enter Full Name" required />
+            
           </div>
           <div class="form-group">
             <label for="username">Username</label>
-            <input type="name" class="form-control" id="username" placeholder="Enter Username" />
+            <input type="name" class="form-control" id="username" placeholder="Enter Username" required />
           </div>
           <div class="form-group">
             <label for="post">Post</label>
-            <input type="name" class="form-control" id="post" placeholder="Enter Post" />
+            <input type="name" class="form-control" id="post" placeholder="Enter Post" required />
           </div>
           <div class="form-group">
-            <label for="address">Address</label>
-            <input type="name" class="form-control" id="address" placeholder="Enter Address" />
+            <label for="address">Current Address</label>
+            <input type="name" class="form-control" id="address" placeholder="Enter Address" required />
           </div>
           <div class="form-group">
             <label for="province_select">Province</label>
-            <select class="form-control" id="province_select" style="color: gray">
-              <option selected disabled>Select Province</option>
+            <select class="form-control" id="province_select" style="color: gray" required>
+              <option  value=''>Select Province</option>
             </select>
           </div>
           <div class="form-group">
             <label for="district_select">District</label>
-            <select class="form-control" id="district_select" style="color: gray">
-              <option selected disabled>Select District</option>
+            <select class="form-control" id="district_select" style="color: gray" required>
+              <option value=''>Select District</option>
             </select>
           </div>
           <div class="form-group">
             <label for="municipality_select">Municipality</label>
-            <select class="form-control" id="municipality_select" style="color: gray">
-              <option selected disabled>Select Municipality</option>
+            <select class="form-control" id="municipality_select" style="color: gray" required>
+              <option value=''>Select Municipality</option>
             </select>
           </div>
           <div class="form-group">
             <label for="ward_no">Ward No.</label>
-            <input class="form-control" type="number" id="ward_no" />
+            <input class="form-control" type="number" id="ward_no" placeholder="Enter Ward Number" required />
           </div>
           <div class="form-group">
             <label for="phone_number">Phone Number</label>
-            <input type="name" class="form-control" id="phone_number" placeholder="Enter Phone Number" />
+            <input type="name" class="form-control" id="phone_number" placeholder="Enter Phone Number" required />
           </div>
           <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter Email" />
+            <input type="email" class="form-control" id="email" placeholder="Enter Email" required />
           </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password" />
-          </div>
-          <div class="form-group" id="passwordGroup">
-            <label for="showPasswordCheckBox">Show password</label>
-            <input type="checkbox" id="showPasswordCheckBox" onclick="togglePassword()" />
-          </div>
-          <button type="submit" class="btn btn-primary">Edit</button>
+          <button  type="submit" class="btn btn-primary submit_btn">Submit</button>
         </form>
       </div>
     </main>
@@ -177,7 +202,6 @@
       post,
       current_address,
       email,
-      password,
       province,
       district,
       local_body,
@@ -190,7 +214,6 @@
         post: post,
         current_address: current_address,
         email: email,
-        password: password,
         province: province,
         district: district,
         local_body: local_body,
@@ -212,7 +235,6 @@
         const post = document.getElementById('post').value
         const current_address = document.getElementById('address').value
         const email = document.getElementById('email').value
-        const password = document.getElementById('password').value
         const province = document.getElementById('province_select').value
         const district = document.getElementById('district_select').value
         const local_body = document.getElementById(
@@ -226,7 +248,6 @@
           post,
           current_address,
           email,
-          password,
           province,
           district,
           local_body,
@@ -239,6 +260,7 @@
       window.location.href = '/Html'
     }
   </script>
+
 </body>
 
 </html>

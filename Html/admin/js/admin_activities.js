@@ -43,6 +43,7 @@ document.getElementById('add_traffic_form').addEventListener('submit', (e) => {
   const district = document.getElementById('district_select').value
   const local_body = document.getElementById('municipality_select').value
   const ward_no = document.getElementById('ward_no').value
+
   registerTraffic(
     fullname,
     username,
@@ -55,6 +56,7 @@ document.getElementById('add_traffic_form').addEventListener('submit', (e) => {
     district,
     local_body,
     ward_no
+  
   )
 })
 
@@ -64,7 +66,7 @@ const validateTraffic = (email, password) => {
       `http://localhost:1337/api/traffics?filter[email][eq]=${email}?filter[email][eq]=${password}`
     )
     .then((res) => console.log(res))
-    .catch((err) => console.log(err))
+    .catch((err) => {console.log(err); alert("Wrong credentials")})
 }
 var passwordToggle = false
 const togglePassword = () => {

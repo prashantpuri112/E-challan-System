@@ -12,6 +12,39 @@
 </head>
 
 <body>
+  <style>
+    label::after {
+      content: " *";
+      color: red;
+    }
+    .password_label::after{
+content: "";
+    }
+    .form_container{
+      padding:1rem;
+    }
+    .traffic_add_form{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+    }
+    #passwordGroup{
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+    .password_toggle{
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .submit_btn{
+      width:300px;
+      grid-column: 1 / span 2;
+    }
+    
+  </style>
+
   <div class="admin_layout">
     <div class="sidebar_container">
       <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px">
@@ -66,12 +99,7 @@
           <div class="form-group">
             <label for="fullname">Full Name</label>
             <input type="name" class="form-control" id="fullname" placeholder="Enter Full Name" required />
-            <style>
-              label:after {
-                content: " *";
-                color: red;
-              }
-            </style>
+            
           </div>
           <div class="form-group">
             <label for="username">Username</label>
@@ -88,19 +116,19 @@
           <div class="form-group">
             <label for="province_select">Province</label>
             <select class="form-control" id="province_select" style="color: gray" required>
-              <option selected disabled>Select Province</option>
+              <option  value=''>Select Province</option>
             </select>
           </div>
           <div class="form-group">
             <label for="district_select">District</label>
             <select class="form-control" id="district_select" style="color: gray" required>
-              <option selected disabled>Select District</option>
+              <option value=''>Select District</option>
             </select>
           </div>
           <div class="form-group">
             <label for="municipality_select">Municipality</label>
             <select class="form-control" id="municipality_select" style="color: gray" required>
-              <option selected disabled>Select Municipality</option>
+              <option value=''>Select Municipality</option>
             </select>
           </div>
           <div class="form-group">
@@ -116,14 +144,17 @@
             <input type="email" class="form-control" id="email" placeholder="Enter Email" required />
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password" >Password</label>
             <input type="password" class="form-control" id="password" placeholder="Password" required />
           </div>
           <div class="form-group" id="passwordGroup">
-            <label for="showPasswordCheckBox">Show password</label>
-            <input type="checkbox" id="showPasswordCheckBox" onclick="togglePassword()" />
+            <div class="password_toggle">
+
+              <label for="showPasswordCheckBox" class='password_label'>Show password</label>
+              <input type="checkbox" id="showPasswordCheckBox" onclick="togglePassword()" />
+            </div>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button  type="submit" class="btn btn-primary submit_btn">Submit</button>
         </form>
       </div>
     </main>
