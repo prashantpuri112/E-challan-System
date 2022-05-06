@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../Css/NavbarStyle.css" />
+  <script src="https://kit.fontawesome.com/90c109dde5.js" crossorigin="anonymous"></script>
   <title>Document</title>
 </head>
 
@@ -14,6 +15,8 @@
     <nav>
       <input type="checkbox" id="show-menu" />
       <!-- Mobile view three dot menu show -->
+
+      <input type="checkbox" id="show-search" />
 
       <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
 
@@ -36,11 +39,20 @@
 
           <!-- <li class="signup"><a href="signup.html">Sign Up</a></li> -->
         </ul>
-        <form id="search_chalan_form">
+        <!-- <form id="search_chalan_form">
           <input type="search" name="search" placeholder="Search by license" id="search" required />
           <button type="submit">Search</button>
-        </form>
+        </form> -->
       </div>
+
+      <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+      <form action="#" id="search_chalan_form" class="search-box">
+        <input type="Search" name="search" id="search" placeholder="Search by License" required />
+        <button type="submit" class="go-icon">
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </button>
+      </form>
+
     </nav>
   </div>
 
@@ -956,6 +968,19 @@
       </tbody>
     </table>
   </div>
+
+  <script>
+    document
+      .getElementById('search_chalan_form')
+      .addEventListener('submit', (e) => {
+        e.preventDefault()
+        const license_number =
+          document.getElementById('search_chalan_form').elements.search.value
+        window.location.href =
+          'searchChalan.html?license_number=' + license_number
+      })
+  </script>
+
 </body>
 
 </html>

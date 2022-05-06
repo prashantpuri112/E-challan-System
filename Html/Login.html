@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/NavbarStyle.css" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://kit.fontawesome.com/90c109dde5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -15,6 +16,8 @@
     <nav>
       <input type="checkbox" id="show-menu" />
       <!-- Mobile view three dot menu show -->
+
+      <input type="checkbox" id="show-search" />
 
       <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
 
@@ -37,11 +40,20 @@
 
           <!-- <li class="signup"><a href="signup.html">Sign Up</a></li> -->
         </ul>
-        <form id="search_chalan_form">
+        <!-- <form id="search_chalan_form">
           <input type="search" name="search" placeholder="Search by license" id="search" required />
           <button type="submit">Search</button>
-        </form>
+        </form> -->
       </div>
+
+      <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+      <form action="#" id="search_chalan_form" class="search-box">
+        <input type="Search" name="search" id="search" placeholder="Search by License" required />
+        <button type="submit" class="go-icon">
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </button>
+      </form>
+
     </nav>
   </div>
 
@@ -99,6 +111,18 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <script src="../js/login.js"></script>
+
+  <script>
+    document
+      .getElementById('search_chalan_form')
+      .addEventListener('submit', (e) => {
+        e.preventDefault()
+        const license_number =
+          document.getElementById('search_chalan_form').elements.search.value
+        window.location.href =
+          'searchChalan.html?license_number=' + license_number
+      })
+  </script>
 </body>
 
 </html>
